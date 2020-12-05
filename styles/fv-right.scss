@@ -1,0 +1,105 @@
+.fv-right {
+  $img-width: 635px;
+  $img-height: 358px;
+  height: 100vh;
+  width: 72%;
+  position: relative;
+  overflow: hidden;
+
+  %__fv-right-rows-style {
+    position: absolute;
+    left: calc(50% - #{$img-width} / 2);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition-duration: 1s;
+  }
+  &__upper-row {
+    @extend %__fv-right-rows-style;
+    bottom: calc(
+      100% - #{$img-height} / 2 - 32px /* hidden状態の時、fvの内側で上に32px空けて表示 */
+    );
+  }
+  &__middle-row {
+    @extend %__fv-right-rows-style;
+    bottom: calc(
+      100% - #{$img-height} / 2 - #{$img-height} / 2.8
+    ); // ギリギリ画面外から下に#{$img-height} / 2.8
+  }
+  &__lower-row {
+    @extend %__fv-right-rows-style;
+    bottom: 50%; // 縦方向の中央寄せ
+  }
+
+  %__fv-right-items-style {
+    position: relative;
+    width: $img-width;
+    height: $img-height;
+    transition-duration: 1s;
+    margin-right: 40px;
+    z-index: 1; // ulがかぶってしまうため、画像を上に配置
+  }
+  &__upper-item {
+    @extend %__fv-right-items-style;
+    /* 深さ 角度 斜め奥方向の座標の調整 / upper-rowの下底とmiddle-rowの上底を合わせる(middle-rowのtranslateY(#{$img-height} / -2) - 画像の高さ($img-height) */
+    transform: perspective(1200px) rotateX(90deg)
+      translateY(calc(#{$img-height} / -2 - #{$img-height}));
+    opacity: 0;
+  }
+  &__middle-item {
+    @extend %__fv-right-items-style;
+    transform: perspective(1200px) rotateX(70deg)
+      translateY(calc(#{$img-height} / -2));
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  &__lower-item {
+    @extend %__fv-right-items-style;
+    transform: translateY(calc(#{$img-height} / 2)); // 縦方向の座標の調整
+    opacity: 1;
+  }
+  /* アニメーション */
+
+  // 初期状態は画面中央に完成品、上にデザインカンプが見切れており、ワイヤーフレームは隠れている状態
+
+  .hidden-to-upper_position {
+    bottom: calc(100% - #{$img-height} / 2 - #{$img-height} / 2.8);
+  }
+  .upper-to-middle_position {
+    bottom: 50%;
+  }
+  .middle-to-lower_position {
+    bottom: calc(
+      0% - #{$img-height} / 2 + #{$img-height} / 2.8
+    ); // ギリギリ画面外から上に#{$img-height} / 2.8
+  }
+  .lower-to-hidden_position {
+    bottom: calc(
+      #{$img-height} / -2 + 32px /* hidden状態の時、fvの内側で下に32px空けて表示 */
+    );
+  }
+
+  .hidden-to-upper_transform {
+    transform: perspective(1200px) rotateX(70deg)
+      translateY(calc(#{$img-height} / -2));
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  .upper-to-middle_transform {
+    transform: translateY(calc(#{$img-height} / 2));
+    opacity: 1;
+    cursor: auto;
+  }
+  .middle-to-lower_transform {
+    transform: perspective(1200px) rotateX(-70deg)
+      translateY(calc(#{$img-height} / 2));
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  .lower-to-hidden_transform {
+    transform: perspective(1200px) rotateX(-90deg)
+      translateY(calc(#{$img-height} / 2 + #{$img-height}));
+    opacity: 0;
+    cursor: auto;
+  }
+}

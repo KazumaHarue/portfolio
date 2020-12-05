@@ -1,0 +1,200 @@
+@charset "UTF-8";
+.fv-left {
+  font-size: 1.6rem;
+  background-color: #eff6ff;
+  height: 100vh;
+  width: 28%;
+  padding: 32px 56px 32px 64px;
+}
+
+.fv-left__site-name {
+  font-size: 2.4rem;
+  margin-bottom: 32px;
+}
+
+.fv-left__description {
+  margin-bottom: 32px;
+}
+
+.fv-left__title {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.fv-left__production-period {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.fv-left__list--itemization {
+  margin-bottom: 32px;
+}
+
+.fv-left__item--disc::before {
+  content: "";
+  width: 0.25rem;
+  height: 0.25rem;
+  display: inline-block;
+  background-color: #000;
+  border-radius: 50%;
+  position: relative;
+  top: -0.25rem;
+  margin-right: 0.25rem;
+}
+
+.fv-right {
+  height: 100vh;
+  width: 72%;
+  position: relative;
+  overflow: hidden;
+  /* アニメーション */
+}
+
+.fv-right .fv-right__upper-row, .fv-right .fv-right__middle-row, .fv-right .fv-right__lower-row {
+  position: absolute;
+  left: calc(50% - 635px / 2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+.fv-right__upper-row {
+  bottom: calc( 100% - 358px / 2 - 32px);
+}
+
+.fv-right__middle-row {
+  bottom: calc( 100% - 358px / 2 - 358px / 2.8);
+}
+
+.fv-right__lower-row {
+  bottom: 50%;
+}
+
+.fv-right .fv-right__upper-item, .fv-right .fv-right__middle-item, .fv-right .fv-right__lower-item {
+  position: relative;
+  width: 635px;
+  height: 358px;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  margin-right: 40px;
+  z-index: 1;
+}
+
+.fv-right__upper-item {
+  /* 深さ 角度 斜め奥方向の座標の調整 / upper-rowの下底とmiddle-rowの上底を合わせる(middle-rowのtranslateY(358px / -2) - 画像の高さ($img-height) */
+  -webkit-transform: perspective(1200px) rotateX(90deg) translateY(calc(358px / -2 - 358px));
+          transform: perspective(1200px) rotateX(90deg) translateY(calc(358px / -2 - 358px));
+  opacity: 0;
+}
+
+.fv-right__middle-item {
+  -webkit-transform: perspective(1200px) rotateX(70deg) translateY(calc(358px / -2));
+          transform: perspective(1200px) rotateX(70deg) translateY(calc(358px / -2));
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.fv-right__lower-item {
+  -webkit-transform: translateY(calc(358px / 2));
+          transform: translateY(calc(358px / 2));
+  opacity: 1;
+}
+
+.fv-right .hidden-to-upper_position {
+  bottom: calc(100% - 358px / 2 - 358px / 2.8);
+}
+
+.fv-right .upper-to-middle_position {
+  bottom: 50%;
+}
+
+.fv-right .middle-to-lower_position {
+  bottom: calc( 0% - 358px / 2 + 358px / 2.8);
+}
+
+.fv-right .lower-to-hidden_position {
+  bottom: calc( 358px / -2 + 32px);
+}
+
+.fv-right .hidden-to-upper_transform {
+  -webkit-transform: perspective(1200px) rotateX(70deg) translateY(calc(358px / -2));
+          transform: perspective(1200px) rotateX(70deg) translateY(calc(358px / -2));
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.fv-right .upper-to-middle_transform {
+  -webkit-transform: translateY(calc(358px / 2));
+          transform: translateY(calc(358px / 2));
+  opacity: 1;
+  cursor: auto;
+}
+
+.fv-right .middle-to-lower_transform {
+  -webkit-transform: perspective(1200px) rotateX(-70deg) translateY(calc(358px / 2));
+          transform: perspective(1200px) rotateX(-70deg) translateY(calc(358px / 2));
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.fv-right .lower-to-hidden_transform {
+  -webkit-transform: perspective(1200px) rotateX(-90deg) translateY(calc(358px / 2 + 358px));
+          transform: perspective(1200px) rotateX(-90deg) translateY(calc(358px / 2 + 358px));
+  opacity: 0;
+  cursor: auto;
+}
+
+.catch {
+  width: 100%;
+  height: 800px;
+  position: relative;
+}
+
+.catch__wrap {
+  width: 100%;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.catch__text {
+  width: 100%;
+  font-size: 2.4rem;
+  line-height: 2;
+  display: inline;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), to(#eff6ff));
+  background: linear-gradient(transparent 50%, #eff6ff 100%);
+}
+
+.conteiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 1.5;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* 1200px以上 */
+/*# sourceMappingURL=style.css.map */

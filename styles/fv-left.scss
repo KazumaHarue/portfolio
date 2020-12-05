@@ -1,0 +1,43 @@
+.fv-left {
+  font-size: 1.6rem;
+  background-color: #eff6ff;
+  height: 100vh;
+  width: 28%;
+  padding: 32px 56px 32px 64px;
+  &__site-name {
+    font-size: 2.4rem;
+    margin-bottom: 32px;
+  }
+  &__description {
+    margin-bottom: 32px;
+  }
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  &__production-period {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  &__list {
+    &--itemization {
+      margin-bottom: 32px;
+    }
+  }
+  &__item {
+    &--disc {
+      &::before {
+        content: "";
+        width: 0.25rem;
+        height: 0.25rem;
+        display: inline-block;
+        background-color: #000;
+        border-radius: 50%;
+        position: relative;
+        top: -0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}
