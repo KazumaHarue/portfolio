@@ -36,8 +36,9 @@
     width: $img-width;
     height: $img-height;
     transition-duration: 1s;
-    margin-right: 40px;
+    margin-right: 64px;
     z-index: 1; // ulがかぶってしまうため、画像を上に配置
+    border: 1px solid #ccc;
   }
   &__upper-item {
     @extend %__fv-right-items-style;

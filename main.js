@@ -1,7 +1,7 @@
 "use strict";
 
 $(function () {
-  const imgWidth = $(".fv-right__lower-item").width() + 40; // $img-width + margin-right
+  const imgWidth = $(".fv-right__lower-item").width() + 64; // $img-width + margin-right
   const length = $(".fv-right__lower-item").length; // 実績の数
   const innerWidth = imgWidth * length;
   let current = 1;

@@ -41,8 +41,9 @@
   height: 358px;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
-  margin-right: 40px;
+  margin-right: 64px;
   z-index: 1;
+  border: 1px solid #ccc;
 }
 
 .fv-right__upper-item {
