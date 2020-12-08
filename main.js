@@ -1,6 +1,7 @@
 "use strict";
 
 $(function () {
+  // 横方向のアニメーション
   const imgWidth = $(".fv-right__lower-item").width() + 64; // $img-width + margin-right
   const length = $(".fv-right__lower-item").length; // 実績の数
   const innerWidth = imgWidth * length;
@@ -9,27 +10,22 @@ $(function () {
   let nextItem = ".fv-right__works li img:nth-child(" + (current + 1) + ")"; // 右の画像
   const rows = $(".fv-right__works li");
   const initialLeft =
-    ($(".fv-right").width()
-      - $(".fv-right__lower-item").width()) / 2;
-      console.log(current);
-      console.log($(prevItem));
-      console.log($(nextItem));
+    ($(".fv-right").width() - $(".fv-right__lower-item").width()) / 2;
+  console.log(current);
+  console.log($(prevItem));
+  console.log($(nextItem));
 
   $(nextItem).click(function () {
-    console.log("クリックされました");
     if (current == length) {
       rows.stop().css({
         left: initialLeft,
       });
-      // rows.stop().css({
-      //   left: initialLeft,
-      // });
       current = 1;
       prevItem = ".fv-right__works li img:nth-child(" + (current - 1) + ")";
       nextItem = ".fv-right__works li img:nth-child(" + (current + 1) + ")";
     } else {
       rows.stop().css({
-        left: initialLeft - imgWidth,
+        left: initialLeft - imgWidth * current,
       });
       current++;
       prevItem = ".fv-right__works li img:nth-child(" + (current - 1) + ")";
@@ -98,5 +94,4 @@ $(function () {
       // console.log("無効");
     }
   });
-
 });
