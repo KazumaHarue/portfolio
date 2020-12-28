@@ -59,6 +59,27 @@
     transform: translateY(calc(#{$img-height} / 2)); // 縦方向の座標の調整
     opacity: 1;
   }
+
+  &__btn-wrapper {
+    @extend %__fv-right-rows-style;
+    bottom: 50%; // 縦方向の中央寄せ
+  }
+  &__prev-btn{
+    @extend %__fv-right-items-style;
+    transform: translateY(calc(#{$img-height} / 2)); // 縦方向の座標の調整
+    left: calc(-64px - #{$img-width});
+    background-color: red;
+    opacity: 0.2;
+  }
+  &__next-btn{
+    @extend %__fv-right-items-style;
+    transform: translateY(calc(#{$img-height} / 2)); // 縦方向の座標の調整
+    background-color: blue;
+    opacity: 0.2;
+  }
+
+
+
   /* アニメーション */
 
   // 初期状態は画面中央に完成品、上にデザインカンプが見切れており、ワイヤーフレームは隠れている状態

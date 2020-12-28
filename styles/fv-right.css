@@ -7,7 +7,7 @@
   /* アニメーション */
 }
 
-.fv-right .fv-right__upper-row, .fv-right .fv-right__middle-row, .fv-right .fv-right__lower-row {
+.fv-right .fv-right__upper-row, .fv-right .fv-right__middle-row, .fv-right .fv-right__lower-row, .fv-right .fv-right__btn-wrapper {
   position: absolute;
   left: calc(50% - 635px / 2);
   display: -webkit-box;
@@ -35,7 +35,7 @@
   bottom: 50%;
 }
 
-.fv-right .fv-right__upper-item, .fv-right .fv-right__middle-item, .fv-right .fv-right__lower-item {
+.fv-right .fv-right__upper-item, .fv-right .fv-right__middle-item, .fv-right .fv-right__lower-item, .fv-right .fv-right__prev-btn, .fv-right .fv-right__next-btn {
   position: relative;
   width: 635px;
   height: 358px;
@@ -64,6 +64,25 @@
   -webkit-transform: translateY(calc(358px / 2));
           transform: translateY(calc(358px / 2));
   opacity: 1;
+}
+
+.fv-right__btn-wrapper {
+  bottom: 50%;
+}
+
+.fv-right__prev-btn {
+  -webkit-transform: translateY(calc(358px / 2));
+          transform: translateY(calc(358px / 2));
+  left: calc(-64px - 635px);
+  background-color: red;
+  opacity: 0.2;
+}
+
+.fv-right__next-btn {
+  -webkit-transform: translateY(calc(358px / 2));
+          transform: translateY(calc(358px / 2));
+  background-color: blue;
+  opacity: 0.2;
 }
 
 .fv-right .hidden-to-upper_position {
